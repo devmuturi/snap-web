@@ -1,0 +1,22 @@
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Name can't be blank"
+              too_short: "is too short (minimum is %{count} characters)"
+              too_long: "is too long (maximum is %{count} characters)"
+            email:
+              blank: "Email can't be blank"
+              invalid: "Entered email is not a valid email"
+              taken: "Email has already been taken"
+            password:
+              blank: "Password can't be blank"
+              too_short: "Password is too short (minimum is %{count} characters)"
+              confirmation: "doesn't match Password"
+            password_confirmation:
+              blank: "Password_confirmation can't be blank"
+              too_short: "Password_confirmation is too short (minimum is %{count} characters)"
+              confirmation: "doesn't match Password"

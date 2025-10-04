@@ -6,8 +6,6 @@
       </h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "is-flex is-flex-direction-column") do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
         <div class="field">
           <%= f.label :name, class: "label" %>
           <div class="control has-icons-left">
