@@ -1,17 +1,17 @@
-<nav class="navbar is-link">
+<nav class="navbar is-link" data-controller="navbar">
     <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
             <strong class="is-size-3">Snap</strong>
         <% end %>
 
-        <a role="button" class="navbar-burger">
+        <a role="button" class="navbar-burger" data-navbar-target="burger" aria-label="menu" aria-expanded="false" data-action="click->navbar#toggle">
             <span></span>
             <span></span>
             <span></span>
         </a>
     </div>
 
-    <navbar-menu class="navbar-menu">
+    <navbar-menu class="navbar-menu" data-navbar-target="menu">
         <div class="navbar-start">
             <%= link_to t(".create_ad"), "#", class: "navbar-item" %>
             <%= link_to t(".messages"), "#", class: "navbar-item" if user_signed_in? %>
