@@ -1,0 +1,68 @@
+<layout-columns class="columns is-centered">
+  <layout-column class="column is-5">
+    <div class="box p-6 mt-6">
+      <h2 class="title has-text-centered mb-5">
+        <%= t("devise.registrations.new.title", default: "Create Your Account") %>
+      </h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "is-flex is-flex-direction-column") do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :name, class: "label" %>
+          <div class="control has-icons-left">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input is-medium", placeholder: "Your full name" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, class: "label" %>
+          <div class="control has-icons-left">
+            <%= f.email_field :email, autocomplete: "email", class: "input is-medium", placeholder: "example@email.com" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, class: "label" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <div class="control has-icons-left">
+            <%= f.password_field :password, autocomplete: "new-password", class: "input is-medium", placeholder: "Enter your password" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, class: "label" %>
+          <div class="control has-icons-left">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-medium", placeholder: "Confirm password" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="block has-text-centered mt-5">
+          <div class="buttons is-centered">
+            <%= f.submit t("devise.registrations.new.sign_up", default: "Sign Up"),
+                         class: "button is-primary is-large px-6 py-4 has-text-weight-semibold" %>
+          </div>
+
+          <p class="mt-3 has-text-grey is-centered">
+            <%= t("devise.registrations.new.already_have_account", default: "Already have an account?") %>
+            <%= link_to t("devise.registrations.new.sign_in", default: "Sign In"), new_user_session_path, class: "has-text-link has-text-weight-semibold" %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </layout-column>
+</layout-columns>
