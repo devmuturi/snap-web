@@ -21,7 +21,7 @@
             <%= tag.div class: "navbar-item has-dropdown is-hoverable mr-4" do %>
                 <%= link_to current_user.name, "#", class: "navbar-link" %>
                 <div class="navbar-dropdown is-right">
-                    <%= link_to t(".profile"), "#", class: "navbar-item" %>
+                    <%= link_to t(".profile"), edit_user_registration_path, class: "navbar-item" %>
                     <%= link_to t(".my_ads"), "#", class: "navbar-item" %>
                     <%= link_to t(".saved_ads"), "#", class: "navbar-item" %>
                     
