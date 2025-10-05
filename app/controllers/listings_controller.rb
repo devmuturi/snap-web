@@ -43,7 +43,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.expect(listing: [:title, :price])
+    params.expect(listing: [:title, :price, :condition ])
   end
 
   def load_listing
