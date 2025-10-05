@@ -1,16 +1,28 @@
-<h2>Forgot your password?</h2>
+<layout-columns class="columns is-centered">
+  <layout-column class="column box is-5 p-6 mt-6 m-4">
+    <h2 class="title has-text-centered mb-5">
+      Forgot your password?
+    </h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "is-flex is-flex-direction-column" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <!-- Email -->
+      <div class="block">
+        <%= f.label :email, class: "label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "Enter your email address" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+      <!-- Submit Button -->
+      <div class="field mt-5">
+        <div class="control has-text-centered">
+          <%= f.submit "Send reset instructions", class: "button is-primary is-medium is-fullwidth" %>
+        </div>
+      </div>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <div class="has-text-centered mt-4">
+      <%= render "devise/shared/links" %>
+    </div>
+  </layout-column>
+</layout-columns>

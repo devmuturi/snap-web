@@ -47,6 +47,10 @@
             <%= t("devise.sessions.new.no_account", default: "Don’t have an account?") %>
             <%= link_to t("devise.registrations.new.sign_up", default: "Sign Up"), new_user_registration_path, class: "has-text-link has-text-weight-semibold" %>
           </p>
+
+          <p class="mt-2 has-text-grey">
+            <%= link_to t("devise.sessions.new.forgot_your_password", default: "Forgot your password?"), new_user_password_path, class: "has-text-link has-text-weight-semibold" %>
+          </p>
         </div>
       <% end %>
     </div>

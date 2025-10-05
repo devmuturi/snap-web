@@ -59,6 +59,9 @@ group :development do
 
   # Customize active record errors in views
   gem "i18n-debug"
+  
+  gem "letter_opener"
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do
@@ -68,3 +71,5 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+gem "premailer-rails", "~> 1.12"
+
