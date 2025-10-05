@@ -1,0 +1,46 @@
+<layout-columns class="columns is-centered">
+    <layout-column class="column is-10">
+        <div class="mb-3">
+            <h1 class="title is-inline">
+                <%= @listing.title %>
+            </h1>
+            <%= link_to t(".edit"), edit_listing_path(@listing) %>
+        </div>
+
+        <layout-columns class="columns is-centered">
+            <layout-column class="box column is-half mt-6 p-5 m-4">
+                <dl>
+                    <dt class="has-text-grey">
+                        <%= t(".posted_by") %>
+                    </dt>
+                    <dd class="has-text-weight-semibold is-size-5">
+                        <%= @listing.creator.name %>
+                    </dd>
+                </dl>
+
+                <layout-group class="buttons mt-6">
+                    <%= button_to "#", class: "button is-secondary is-medium" do%>
+                        <%= svg "heart", class: "icon is-small mr-3" %>
+                        <span><%= t(".save")%></span>
+                    <% end %>
+
+                    <%= link_to "#", class: "button is-primary is-medium" do %>
+                        <%= svg "message", class: "icon is-small mr-3", fill: "#fff" %>
+                        <span><%= t(".contact") %></span>
+                    <% end %>
+                </layout-group>
+            </layout-column>
+
+            <layout-column class="box column is-half mt-6 p-5 m-4">
+                <dl>
+                    <dt class="has-text-grey">
+                        <%= Listing.human_attribute_name(:price) %>
+                    </dt>
+                    <dd class="has-text-weight-semibold is-size-5">
+                        <%= number_to_currency(@listing.price, unit: "KSh ") %>
+                    </dd>
+                </dl>
+            </layout-column>
+        </layout-columns>
+    </layout-column>
+</layout-columns>

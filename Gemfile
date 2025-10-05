@@ -51,6 +51,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # faker for generating fake data 
+  gem "faker", "~> 3.1"
 end
 
 group :development do
