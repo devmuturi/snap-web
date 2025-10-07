@@ -1,2 +1,13 @@
-<h1>Feed#show</h1>
-<p>Find me in app/views/feed/show.html.erb</p>
+<div class="container mt-3">
+    <h1 class="title">
+        <% if user_signed_in? %>
+            <%= t(".welcome_with_name", name: current_user.name) %>
+        <% else %>
+            <%= t(".welcome") %>
+        <% end %>
+    </h1>
+
+    <layout-columns class="columns is-centered is-multiline">
+        <%= render partial: @listings, layout: "listing_layout" %>
+    </layout-columns>
+</div>
