@@ -1,5 +1,5 @@
 class FeedController < ApplicationController
   def show
-    @listings = Listing.feed.first(12)
+    @pagy, @listings = pagy(Listing.feed)
   end
 end

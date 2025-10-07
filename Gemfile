@@ -77,3 +77,5 @@ gem "devise", "~> 4.9"
 gem "premailer-rails", "~> 1.12"
 gem "iso_country_codes"
 
+
+ gem "pagy", "~> 5.10"
