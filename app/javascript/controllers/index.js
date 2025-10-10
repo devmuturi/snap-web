@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ImageUploadController from "./image_upload_controller"
+application.register("image-upload", ImageUploadController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
