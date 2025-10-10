@@ -1,0 +1,9 @@
+<div class="container mt-3">
+    <layout-columns class="columns is-centered is-multiline">
+        <%= render partial: @listings, layout: "feed/listing_layout" %>
+    </layout-columns>
+</div>
+
+<div class="container m-5 mt-6">
+    <%= render "pagy/nav", pagy: @pagy %>
+</div>
