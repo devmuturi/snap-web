@@ -78,4 +78,4 @@ gem "premailer-rails", "~> 1.12"
 gem "iso_country_codes"
 
 
- gem "pagy", "~> 5.10"
+ gem "pagy", "~> 9.4"
