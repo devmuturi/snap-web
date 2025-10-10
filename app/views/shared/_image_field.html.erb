@@ -1,0 +1,18 @@
+<%= tag.image_upload_field do %>
+    <div class="file is-large is-boxed is-centered">
+        <label class="file-label">
+            <%= form.field(
+                attribute,
+                accept: "image/*",
+                direct_upload: true,
+                required: true
+            )%>
+            <span class="file-cta">
+                <%= svg "upload", class: "file-icon" %>
+                <span class="file-label">
+                    <%= label %>
+                </span>
+            </span>
+        </label>
+    </div>
+<% end %>
