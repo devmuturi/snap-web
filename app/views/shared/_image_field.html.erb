@@ -1,6 +1,8 @@
-<%= tag.image_upload_field do %>
+<%= tag.image_upload_field(data: { 
+    controller: "image-upload"
+}) do %>
     <div class="file is-large is-boxed is-centered">
-        <label class="file-label">
+        <label class="file-label" data-image-upload-target="cta">
             <%= form.file_field(
                 attribute,
                 accept: "image/*",
@@ -15,4 +17,33 @@
             </span>
         </label>
     </div>
+
+    <figure class="image is-relative">
+        <% url =
+            form.object.cover_photo.present? ?
+            url_for(form.object.cover_photo) : ""
+        %>
+        <%= image_tag url, data: { image_upload_target: "preview" } %>
+    </figure>
+
+    <progress
+        value="0"
+        max="100"
+        class="progress is-primary"
+        data-image-upload-target="progress"
+    ></progress>
+
+    <%= tag.div(
+        class: "buttons is-centered is-hidden mt-3",
+        data: {
+            image_upload_target: "remove"
+        }
+    ) do %>
+        <%= tag.button(
+            class: "button is-danger",
+            type: "button" 
+        ) do %>
+            <%= t(".remove_image") %>
+        <%end %>
+    <% end %>
 <% end %>
