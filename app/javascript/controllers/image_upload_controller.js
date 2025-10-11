@@ -33,6 +33,13 @@ export default class extends Controller {
     ).start()
   }
 
+  remove() {
+    this.previewTarget.removeAttribute("src")
+    this.fileInputTarget.value = ""
+    this.hiddenInputTarget.value = ""
+    this.setState("no_image")
+  }
+
   // private
 
   setState(state) {
