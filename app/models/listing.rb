@@ -21,7 +21,7 @@ class Listing < ApplicationRecord
 
     before_save :downcase_tags
 
-    scope :feed, -> { order(created_at: :desc).includes(:address) }
+    scope :feed, -> { order(created_at: :desc).includes(:address).with_attached_cover_photo }
 
     private 
 
