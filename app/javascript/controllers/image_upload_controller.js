@@ -7,7 +7,9 @@ export default class extends Controller {
     "preview",
     "cta",
     "progress",
-    "remove"
+    "remove",
+    "fileInput",
+    "hiddenInput"
   ]
 
   static values = {
@@ -39,6 +41,7 @@ export default class extends Controller {
         this.ctaTarget.classList.remove("is-hidden")
         this.removeTarget.classList.add("is-hidden")
         this.progressTarget.classList.add("is-hidden")
+        this.fileInputTarget.disabled = false
         break
       case "uploading":
         this.ctaTarget.classList.remove("is-hidden")
@@ -49,6 +52,7 @@ export default class extends Controller {
         this.ctaTarget.classList.add("is-hidden")
         this.removeTarget.classList.remove("is-hidden")
         this.progressTarget.classList.add("is-hidden")
+        this.fileInputTarget.disabled = true
         break
     }
   }
@@ -73,6 +77,7 @@ export default class extends Controller {
       .replace(":filename", encodeURIComponent(attributes.filename))
 
       this.previewTarget.setAttribute("src", imageUrl)
+      this.hiddenInputTarget.value = attributes.signed_id
 
     this.setState("image_set")
   }

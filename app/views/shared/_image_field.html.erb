@@ -8,12 +8,22 @@
     <div class="file is-large is-boxed is-centered">
         <label class="file-label" data-image-upload-target="cta">
             <%= form.file_field(
-                attribute,
+                nil,
+                id: nil,
+                class: "file-input"
                 accept: "image/*",
                 direct_upload: true,
                 required: true,
                 data: {
-                    action: "image-upload#upload"
+                    action: "image-upload#upload",
+                    image_upload_target: "fileInput"
+                }
+            )%>
+            <%= form.hidden_field(
+                attribute,
+                value: form.object.cover_photo&.signed_id,
+                data: {
+                    image_upload_target: "hiddenInput"
                 }
             )%>
             <span class="file-cta">
