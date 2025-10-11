@@ -10,6 +10,10 @@ export default class extends Controller {
     "remove"
   ]
 
+  static values = {
+    blobUrlTemplate: String
+  }
+
   connect() {
     if (this.previewTarget.getAttribute("src")) {
       this.setState("image_set")
@@ -63,6 +67,12 @@ export default class extends Controller {
       this.setState("no_image")
       return
     }
+
+    let imageUrl = this.blobUrlTemplateValue
+      .replace(":signed_id", attributes.signed_id)
+      .replace(":filename", encodeURIComponent(attributes.filename))
+
+      this.previewTarget.setAttribute("src", imageUrl)
 
     this.setState("image_set")
   }
