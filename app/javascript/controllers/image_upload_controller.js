@@ -38,4 +38,9 @@ export default class extends Controller {
         break
     }
   }
+
+  // File upload Delegate
+  setFileUploadProgress(progress) {
+    this.progressTarget.value = progress
+  }
 }
