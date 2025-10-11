@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
+import { FileUpload } from "../helpers/file_upload"
 
 // Connects to data-controller="image-upload"
 export default class extends Controller {
-  static = [
+  static targets = [
     "preview",
     "cta",
     "progress",
@@ -17,11 +18,20 @@ export default class extends Controller {
     }
   }
 
+  upload(event) {
+    let file = event.target.files[0]
+    new FileUpload(
+      event.target.files[0],
+      event.target.dataset.directUploadUrl,
+      this
+    ).start()
+  }
+
   // private
 
   setState(state) {
     switch(state) {
-      case "no image":
+      case "no_image":
         this.ctaTarget.classList.remove("is-hidden")
         this.removeTarget.classList.add("is-hidden")
         this.progressTarget.classList.add("is-hidden")

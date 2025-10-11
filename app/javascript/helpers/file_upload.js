@@ -10,7 +10,7 @@ export class FileUpload {
 
     start() {
         this.directUpload.create(this.directUploadDidComplete.bind(this))
-        this.delegate.FileUploadDidStart(this)
+        this.delegate.fileUploadDidStart(this)
     }
 
     // `DirectUpload` delegate method
