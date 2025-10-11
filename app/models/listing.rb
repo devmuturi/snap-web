@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
     belongs_to :organization
 
     has_one_attached :cover_photo
+    has_rich_text :description
       
     enum :condition, {
         mint: "mint",
@@ -18,6 +19,7 @@ class Listing < ApplicationRecord
     validates :condition, presence: true
     validates :tags, length: { in: 1..5 }
     validates :cover_photo, presence: true
+    validates :description, presence: true
 
     before_save :downcase_tags
 
