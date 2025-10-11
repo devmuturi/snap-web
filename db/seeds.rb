@@ -20,6 +20,7 @@ end
         creator: random_user,
         organization: random_user.organizations.first,
         title: Faker::Commerce.product_name,
+        description: "#{Faker::Company.catch_phrase}. #{Faker::Lorem.paragraph(sentence_count: 2)}",
         cover_photo: cover_photo_blob,
         price: Faker::Commerce.price.floor,
         condition: Listing.conditions.values.sample,
