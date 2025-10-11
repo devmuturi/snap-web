@@ -7,7 +7,10 @@
                 attribute,
                 accept: "image/*",
                 direct_upload: true,
-                required: true
+                required: true,
+                data: {
+                    action: "image-upload#upload"
+                }
             )%>
             <span class="file-cta">
                 <%= svg "upload", class: "file-icon" %>

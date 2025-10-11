@@ -43,4 +43,17 @@ export default class extends Controller {
   setFileUploadProgress(progress) {
     this.progressTarget.value = progress
   }
+
+  fileUploadDidStart(upload) {
+    this.setState("uploading")
+  }
+
+  fileUploadDidComplete(error, attributes) {
+    if(error) {
+      this.setState("no_image")
+      return
+    }
+
+    this.setState("image_set")
+  }
 }
