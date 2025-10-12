@@ -7,6 +7,7 @@
 <layout-columns class="columns is-centered">
     <layout-column class="column is-10">
        <layout-group class="buttons is-right">
+        <%= submit_tag t(".save_as_draft"), form: "new_listing_form", formaction: draft_listings_path, formmethod: :post, class: "button is-secondary is-medium m-3" %>
         <%= submit_tag t(".publish"), form: "new_listing_form", class: "button is-primary is-medium m-3" %>
        </layout-group>
     </layout-column>
