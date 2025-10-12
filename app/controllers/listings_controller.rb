@@ -23,6 +23,7 @@ class ListingsController < ApplicationController
       listing_params.with_defaults(
         creator: current_user,
         organization: current_user.organizations.first
+        status: :published
       )
     )
 
@@ -39,9 +40,17 @@ class ListingsController < ApplicationController
 
   def update
     drop_breadcrumb t("listings.breadcrumbs.edit")
-    
-    if @listing.update(listing_params)
-      redirect_to listing_path(@listing), flash: { success: t(".success") }, status: :see_other
+
+    @listing.assign_attributes(
+      listing_params.with_defaults(
+        status: :published
+      )
+    )
+
+    if @listing.save
+      flash[:success] = t(".success")
+      recede_or_redirect_to listing_path(@listing),
+        status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -56,7 +65,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(
+    params.fetch(:listing, {}).permit(
       Listing.permitted_attributes
     )
   end

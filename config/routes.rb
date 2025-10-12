@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources :listings, except: :index
+  resources :listings, except: :index do
+    scope module: :listings do
+      post :draft, to: "drafts#create", on: :collection
+      patch :draft, to: "drafts#update"
+    end
+  end
   resource :my_listings, only: :show
 end
