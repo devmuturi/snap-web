@@ -14,7 +14,7 @@ class Listing < ApplicationRecord
         defective: "defective"
     }
 
-    enum status: {
+    enum :status, {
         draft: "draft", published: "published",
         expired: "expired"
     }

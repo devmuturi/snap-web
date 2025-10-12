@@ -2,18 +2,18 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
   before_action :load_listing, except: %i[new create]
 
-  drop_breadcrumb -> { @listing.title },
+  drop_breadcrumb -> { @listing&.title },
                   -> { listing_path(@listing) },
-                  expect: [:new, :create]
+                  except: [:new, :create]
 
   def show
   end
 
   def new
-    drop_breadcrumb t("listings.breadcrumbs.new")
-
     @listing = Listing.new
     @listing.build_address
+    
+    drop_breadcrumb t("listings.breadcrumbs.new")
   end
 
   def create
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(
       listing_params.with_defaults(
         creator: current_user,
-        organization: current_user.organizations.first
+        organization: current_user.organizations.first,
         status: :published
       )
     )

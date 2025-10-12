@@ -4,8 +4,8 @@ class Listings::DraftsController < ApplicationController
     def create
         @listing = Listing.new(
             listing_params.with_defaults(
-                creator: current_user
-                organization: current_user.organization,
+                creator: current_user,
+                organization: current_user.organizations.first,
                 status: :draft
             )
         )
@@ -29,6 +29,7 @@ class Listings::DraftsController < ApplicationController
         else
             render "listings/edit", status: :unprocessable_entity
         end
+    end
     
         
         private
