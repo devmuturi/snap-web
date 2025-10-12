@@ -15,7 +15,7 @@ class Listing < ApplicationRecord
     }
 
     enum status: {
-        draft: "draft", published: "published"
+        draft: "draft", published: "published",
         expired: "expired"
     }
 
