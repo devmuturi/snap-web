@@ -18,6 +18,12 @@ module Breadcrumbs
     protected
 
     def drop_breadcrumb(label, path = nil)
+        path = send(path) if path.is_a? Symbol
+
+        label = instance_exec(&label) if label.is_a? Proc
+        path = instance_exec(&path) if path.is_a? Proc
+
+        breadcrumbs << Crumb.new(label, path)
     end
 
     private
