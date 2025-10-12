@@ -14,6 +14,11 @@ class Listing < ApplicationRecord
         defective: "defective"
     }
 
+    enum :status, {
+        draft: "draft", published: "published",
+        expired: "expired"
+    }
+
     validates :title, length: { in: 10..100 }
     validates :price, numericality: { only_integer: true }
     validates :condition, presence: true
@@ -23,7 +28,12 @@ class Listing < ApplicationRecord
 
     before_save :downcase_tags
 
-    scope :feed, -> { order(created_at: :desc).includes(:address).with_attached_cover_photo }
+    scope :feed, -> { 
+        published
+        .order(created_at: :desc)
+        .includes(:address)
+        .with_attached_cover_photo 
+    }
 
     private 
 
