@@ -35,9 +35,16 @@ class Listing < ApplicationRecord
         .with_attached_cover_photo 
     }
 
+    def saved_by?(user)
+        return false unless user.present?
+
+        user.saved_listings.exists?(id: id)
+    end
+
     private 
 
     def downcase_tags
         self.tags = tags.map(&:downcase)
     end
+     
 end

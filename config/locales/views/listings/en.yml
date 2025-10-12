@@ -1,5 +1,8 @@
 en:
   listings:
+    save_button:
+      save: Save this ad
+      unsave: Unsave
     breadcrumbs:
       new: New ad
       edit: Edit ad

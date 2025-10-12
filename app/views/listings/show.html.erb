@@ -41,9 +41,8 @@
                 </dl>
 
                 <layout-group class="buttons mt-6">
-                    <%= button_to "#", class: "button is-secondary is-medium" do%>
-                        <%= svg "heart", class: "icon is-small mr-3" %>
-                        <span><%= t(".save")%></span>
+                    <%= tag.div id: "save_button" do %>
+                        <%= render "listings/save_button", listing: @listing %>
                     <% end %>
 
                     <%= link_to "#", class: "button is-primary is-medium" do %>
