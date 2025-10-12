@@ -2,15 +2,23 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
   before_action :load_listing, except: %i[new create]
 
+  drop_breadcrumb -> { @listing.title },
+                  -> { listing_path(@listing) },
+                  expect: [:new, :create]
+
   def show
   end
 
   def new
+    drop_breadcrumb t("listings.breadcrumbs.new")
+
     @listing = Listing.new
     @listing.build_address
   end
 
   def create
+    drop_breadcrumb t("listings.breadcrumbs.new")
+
     @listing = Listing.new(
       listing_params.with_defaults(
         creator: current_user,
@@ -26,9 +34,12 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    drop_breadcrumb t("listings.breadcrumbs.edit")
   end
 
   def update
+    drop_breadcrumb t("listings.breadcrumbs.edit")
+    
     if @listing.update(listing_params)
       redirect_to listing_path(@listing), flash: { success: t(".success") }, status: :see_other
     else
