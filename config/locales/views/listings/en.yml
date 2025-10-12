@@ -1,5 +1,8 @@
 en:
   listings:
+    breadcrumbs:
+      new: New ad
+      edit: Edit ad
     new:
       title: Create an ad
       publish: Publish ad
