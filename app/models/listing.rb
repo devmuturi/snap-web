@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-    include HasAddress, PermittedAttributes
+    include HasAddress, PermittedAttributes, AccessPolicy
     
     belongs_to :creator, class_name: 'User'
     belongs_to :organization

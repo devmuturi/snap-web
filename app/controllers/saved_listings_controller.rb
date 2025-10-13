@@ -10,10 +10,14 @@ class SavedListingsController < ApplicationController
     end
 
     def create
+        authorize! @listing.can_save?(current_user)
+
         current_user.saved_listings << @listing
     end
 
     def destroy
+        authorize! @listing.can_save?(current_user)
+        
         current_user.saved_listings.destroy(@listing)
     end
 

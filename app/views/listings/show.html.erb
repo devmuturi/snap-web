@@ -4,7 +4,9 @@
             <h1 class="title is-inline">
                 <%= @listing.title %>
             </h1>
-            <%= link_to t(".edit"), edit_listing_path(@listing) %>
+            <% if @listing.edit?(current_user) %>
+                <%= link_to t(".edit"), edit_listing_path(@listing) %>
+            <% end %>
         </div>
 
         <%= render "status", listing: @listing %>
@@ -43,7 +45,7 @@
                 <layout-group class="buttons mt-6">
                     <%= tag.div id: "save_button" do %>
                         <%= render "listings/save_button", listing: @listing %>
-                    <% end %>
+                    <% end if @listing.can_save?(current_user) %>
 
                     <%= link_to "#", class: "button is-primary is-medium" do %>
                         <%= svg "message", class: "icon is-small mr-3", fill: "#fff" %>

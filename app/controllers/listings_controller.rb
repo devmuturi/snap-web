@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :load_listing, except: %i[new create]
+  skip_authorization only: [:new, :create]
 
   drop_breadcrumb -> { @listing&.title },
                   -> { listing_path(@listing) },
@@ -70,7 +70,7 @@ class ListingsController < ApplicationController
     )
   end
 
-  def load_listing
+  def authorizable_resource
     @listing = Listing.find(params[:id])
   end
 end
