@@ -26,5 +26,11 @@ module Snap
     
     # set active_storage to use libvips
     # config.active_storage.variant_processor = :vips
+
+    # Define the Rack app to handle exceptions
+    config.exceptions_app = -> (env) {
+      ErrorsController.action(:show).call(env)
+    }
+    
   end
 end

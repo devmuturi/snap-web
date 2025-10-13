@@ -73,4 +73,7 @@ Rails.application.configure do
   # letter opener configuration
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  # Disable error pages with stack traces in local development
+  config.consider_all_requests_local = true
 end
