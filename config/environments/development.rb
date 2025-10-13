@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Disable error pages with stack traces in local development
   config.consider_all_requests_local = true
+
+  # sidekiq in development
+  config.active_job.queue_adapter = :sidekiq
 end

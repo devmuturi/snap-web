@@ -54,6 +54,8 @@ group :development, :test do
 
   # faker for generating fake data 
   gem "faker", "~> 3.1"
+
+  gem "dotenv-rails", "~> 2.8"
 end
 
 group :development do
@@ -77,5 +79,6 @@ gem "devise", "~> 4.9"
 gem "premailer-rails", "~> 1.12"
 gem "iso_country_codes"
 
-
- gem "pagy", "~> 5.10"
+gem "pagy", "~> 5.10"
+gem "sidekiq", "~> 6.5"
+ 
