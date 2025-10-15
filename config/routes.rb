@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       patch :draft, to: "drafts#update"
     end
 
-    resource :saved_listings, only: [:create, :destroy], path: "save"
+    resource :saved_listings, only: [ :create, :destroy ], path: "save"
   end
   resource :my_listings, only: :show
   resource :saved_listings, only: :show

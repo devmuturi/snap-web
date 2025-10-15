@@ -52,7 +52,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # faker for generating fake data 
+  # faker for generating fake data
   gem "faker", "~> 3.1"
 
   gem "dotenv-rails", "~> 2.8"
@@ -64,9 +64,9 @@ group :development do
 
   # Customize active record errors in views
   gem "i18n-debug"
-  
+
   gem "letter_opener"
-  gem 'letter_opener_web', '~> 3.0'
+  gem "letter_opener_web", "~> 3.0"
 end
 
 group :test do
@@ -81,4 +81,3 @@ gem "iso_country_codes"
 
 gem "pagy", "~> 5.10"
 gem "sidekiq", "~> 6.5"
- 

@@ -15,7 +15,7 @@ module HumanEnum
 
     def human_enum_options(enum_name)
       send(enum_name.to_s.pluralize).map do |key, _value|
-        [human_enum_name(enum_name, key), key]
+        [ human_enum_name(enum_name, key), key ]
       end.to_h
     end
   end

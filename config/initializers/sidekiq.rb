@@ -1,5 +1,5 @@
 if Rails.env.production?
-    require  "sidekiq/web"
+    require "sidekiq/web"
 
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
         username_valid = ActiveSupport::SecurityUtils.secure_compare(

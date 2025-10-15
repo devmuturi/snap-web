@@ -30,8 +30,8 @@ class Listings::DraftsController < ApplicationController
             render "listings/edit", status: :unprocessable_entity
         end
     end
-    
-        
+
+
         private
 
         def listing_params

@@ -17,7 +17,7 @@ class SavedListingsController < ApplicationController
 
     def destroy
         authorize! @listing.can_save?(current_user)
-        
+
         current_user.saved_listings.destroy(@listing)
     end
 

@@ -23,14 +23,13 @@ module Snap
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    
+
     # set active_storage to use libvips
     # config.active_storage.variant_processor = :vips
 
     # Define the Rack app to handle exceptions
-    config.exceptions_app = -> (env) {
+    config.exceptions_app = ->(env) {
       ErrorsController.action(:show).call(env)
     }
-    
   end
 end

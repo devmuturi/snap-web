@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         super do |user|
             if user.persisted?
                 # Create organization after successfully saves
-                Organization.create(members: [user])
+                Organization.create(members: [ user ])
             end
         end
     end

@@ -1,12 +1,13 @@
 class Listing < ApplicationRecord
-    include HasAddress, PermittedAttributes, AccessPolicy
-    
-    belongs_to :creator, class_name: 'User'
+    include HasAddress, PermittedAttributes, AccessPolicy,
+    Publishable, Expireable
+
+    belongs_to :creator, class_name: "User"
     belongs_to :organization
 
     has_one_attached :cover_photo
     has_rich_text :description
-      
+
     enum :condition, {
         mint: "mint",
         near_mint: "near_mint",
@@ -28,11 +29,11 @@ class Listing < ApplicationRecord
 
     before_save :downcase_tags
 
-    scope :feed, -> { 
+    scope :feed, -> {
         published
         .order(created_at: :desc)
         .includes(:address)
-        .with_attached_cover_photo 
+        .with_attached_cover_photo
     }
 
     def saved_by?(user)
@@ -41,10 +42,13 @@ class Listing < ApplicationRecord
         user.saved_listings.exists?(id: id)
     end
 
-    private 
+    def expiry_date
+        published_on.end_of_day + 30.days
+    end
+
+    private
 
     def downcase_tags
         self.tags = tags.map(&:downcase)
     end
-     
 end

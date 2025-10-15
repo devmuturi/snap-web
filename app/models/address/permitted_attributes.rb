@@ -3,7 +3,7 @@ module Address::PermittedAttributes
 
     class_methods do
         def permitted_attributes
-            [:line_1, :line_2, :city, :postcode, :country]
+            [ :line_1, :line_2, :city, :postcode, :country ]
         end
     end
 end

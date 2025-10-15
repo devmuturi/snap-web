@@ -1,10 +1,10 @@
-100.times do 
+100.times do
     user = User.create(
         name: Faker::Name.name,
         email: Faker::Internet.email,
         password: 'password'
     )
-    Organization.create(members: [user])
+    Organization.create(members: [ user ])
 end
 
 1000.times do
@@ -30,7 +30,7 @@ end
             line_2: Faker::Address.street_address,
             city: Faker::Address.city,
             country: "KE",
-            postcode: Faker::Address.postcode,
+            postcode: Faker::Address.postcode
         }
     )
 end

@@ -1,10 +1,10 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  skip_authorization only: [:new, :create]
+  skip_authorization only: [ :new, :create ]
 
   drop_breadcrumb -> { @listing&.title },
                   -> { listing_path(@listing) },
-                  except: [:new, :create]
+                  except: [ :new, :create ]
 
   def show
   end
@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     @listing.build_address
-    
+
     drop_breadcrumb t("listings.breadcrumbs.new")
   end
 
