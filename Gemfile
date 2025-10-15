@@ -81,3 +81,4 @@ gem "iso_country_codes"
 
 gem "pagy", "~> 5.10"
 gem "sidekiq", "~> 6.5"
+gem "sidekiq-cron", "~> 1.7"
