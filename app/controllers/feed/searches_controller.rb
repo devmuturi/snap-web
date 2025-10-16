@@ -2,11 +2,10 @@ class Feed::SearchesController < ApplicationController
   rescue_from ActionController::ParameterMissing do
     redirect_to root_path, status: :see_other
   end
-  
+
   def show
-    @pagy, @listings = pagy (
-      Listing.feed.search(search_params[:query])
-    )
+    @search = Listings::Search.new(search_params)
+    @pagy, @listings = pagy(@search.perform)
 
     render "feed/show"
   end
@@ -14,6 +13,6 @@ class Feed::SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:listings_search).permit(:query)
+    params.require(:listings_search).permit(:query, :location)
   end
 end

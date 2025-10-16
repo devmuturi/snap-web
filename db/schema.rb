@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_16_094353) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_16_213438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -67,7 +67,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_16_094353) do
     t.string "postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+    t.index ["latitude", "longitude"], name: "index_addresses_on_latitude_and_longitude"
   end
 
   create_table "listings", force: :cascade do |t|
