@@ -31,5 +31,8 @@ module Snap
     config.exceptions_app = ->(env) {
       ErrorsController.action(:show).call(env)
     }
+
+    # Disable partial paths being prefixed with controller namespaces
+    config.action_view.prefix_partial_path_with_controller_namespace = false
   end
 end

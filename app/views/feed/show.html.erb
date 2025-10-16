@@ -7,8 +7,10 @@
         <% end %>
     </h1>
 
+    <%= render "feed/search" %>
+
     <layout-columns class="columns is-centered is-multiline">
-        <%= render partial: @listings, layout: "listing_layout" %>
+        <%= render partial: @listings, layout: "feed/listing_layout" %>
     </layout-columns>
 </div>
 

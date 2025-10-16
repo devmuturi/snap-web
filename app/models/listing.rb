@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
     include HasAddress, PermittedAttributes, AccessPolicy,
-    Publishable, Expireable
+    Publishable, Expireable, Searchable
 
     belongs_to :creator, class_name: "User"
     belongs_to :organization
