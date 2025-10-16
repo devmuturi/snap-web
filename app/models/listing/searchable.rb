@@ -28,13 +28,13 @@ module Listing::Searchable
         .order("rank DESC")
     }
 
-    scope :near, -> (location) {
+    scope :near, ->(location) {
       select(Arel.star)
         .joins(:address)
         .merge(Address.near(location))
     }
 
-    scope :filter_by_tags, -> (tags) {
+    scope :filter_by_tags, ->(tags) {
       where("tags @> ARRAY[?]::varchar[]", tags)
     }
   end

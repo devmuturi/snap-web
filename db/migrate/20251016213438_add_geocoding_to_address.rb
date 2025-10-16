@@ -5,6 +5,6 @@ class AddGeocodingToAddress < ActiveRecord::Migration[8.0]
       t.decimal :longitude
     end
 
-    add_index :addresses, [:latitude, :longitude]
+    add_index :addresses, [ :latitude, :longitude ]
   end
 end

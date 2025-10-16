@@ -3,7 +3,7 @@ class Listings::Search
 
   attr_accessor :query, :location, :tags
 
-  def initialize(attributes={})
+  def initialize(attributes = {})
     super
 
     self.query = nil unless query.present?
@@ -12,12 +12,12 @@ class Listings::Search
   end
 
   def perform
-    case [query, location, tags]
-      in [String, nil, nil]
+    case [ query, location, tags ]
+    in [ String, nil, nil ]
         Listing.feed.search(query)
-      in [String, String, nil]
+    in [ String, String, nil ]
         Listing.feed.search(query).near(location)
-      in [nil, nil, Array]
+    in [ nil, nil, Array ]
         Listing.feed.filter_by_tags(tags)
     else
       raise "Error in search data"
