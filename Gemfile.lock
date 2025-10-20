@@ -79,7 +79,7 @@ GEM
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.1)
-    bigdecimal (3.2.3)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
@@ -101,6 +101,9 @@ GEM
     concurrent-ruby (1.3.5)
     connection_pool (2.5.4)
     crass (1.0.6)
+    cronex (0.15.0)
+      tzinfo
+      unicode (>= 0.4.4.5)
     css_parser (1.21.1)
       addressable
     cssbundling-rails (1.4.3)
@@ -201,7 +204,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    minitest (5.25.5)
+    minitest (5.26.0)
     msgpack (1.8.0)
     net-imap (0.5.11)
       date
@@ -365,10 +368,11 @@ GEM
       connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
-    sidekiq-cron (1.12.0)
-      fugit (~> 1.8)
+    sidekiq-cron (2.3.1)
+      cronex (>= 0.13.0)
+      fugit (~> 1.8, >= 1.11.1)
       globalid (>= 1.0.1)
-      sidekiq (>= 6)
+      sidekiq (>= 6.5.0)
     sshkit (1.24.0)
       base64
       logger
@@ -390,10 +394,11 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode (0.4.4.5)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -451,7 +456,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   selenium-webdriver
   sidekiq (~> 6.5)
-  sidekiq-cron (~> 1.7)
+  sidekiq-cron (~> 2.3)
   stimulus-rails
   thruster
   turbo-rails

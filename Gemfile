@@ -81,7 +81,7 @@ gem "iso_country_codes"
 
 gem "pagy", "~> 5.10"
 gem "sidekiq", "~> 6.5"
-gem "sidekiq-cron", "~> 1.7"
+gem "sidekiq-cron", "~> 2.3"
 gem "geocoder", "~> 1.8"
 gem "local_time", "~> 2.1"
 gem "browser", "~> 5.3"
