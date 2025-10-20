@@ -24,4 +24,9 @@ module Listing::AccessPolicy
         return false unless user.present?
         !user.organizations.exists?(organization.id)
     end
+
+    def can_contact?(user)
+        return false unless user.present?
+        !user.organizations.exists?(organization.id)
+    end
 end

@@ -185,6 +185,7 @@ GEM
       railties (>= 6.1)
       rexml
     lint_roller (1.1.0)
+    local_time (2.1.0)
     logger (1.7.0)
     loofah (2.24.1)
       crass (~> 1.0.2)
@@ -438,6 +439,7 @@ DEPENDENCIES
   kamal
   letter_opener
   letter_opener_web (~> 3.0)
+  local_time (~> 2.1)
   pagy (~> 5.10)
   pg (~> 1.1)
   premailer-rails (~> 1.12)

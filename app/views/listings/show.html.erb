@@ -47,10 +47,10 @@
                         <%= render "listings/save_button", listing: @listing %>
                     <% end if @listing.can_save?(current_user) %>
 
-                    <%= link_to "#", class: "button is-primary is-medium" do %>
+                    <%= link_to listing_contact_path(@listing), class: "button is-primary is-medium", data: { turbo_frame: :modal } do %>
                         <%= svg "message", class: "icon is-small mr-3", fill: "#fff" %>
                         <span><%= t(".contact") %></span>
-                    <% end %>
+                    <% end if @listing.can_contact?(current_user)%>
                 </layout-group>
             </layout-column>
 

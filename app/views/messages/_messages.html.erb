@@ -1,0 +1,3 @@
+<%= tag.message_container class: "p-4", id: dom_id(conversation, :messages) do %>
+    <%= render conversation.messages.for_display %>
+<% end %>

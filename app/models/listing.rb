@@ -7,6 +7,7 @@ class Listing < ApplicationRecord
 
     has_one_attached :cover_photo
     has_rich_text :description
+    has_many :conversations
 
     enum :condition, {
         mint: "mint",

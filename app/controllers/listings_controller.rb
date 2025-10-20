@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(
       listing_params.with_defaults(
         creator: current_user,
-        organization: current_user.organizations.first,
+        organization: Current.organization,
         status: :published
       )
     )

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     scope module: :listings do
       post :draft, to: "drafts#create", on: :collection
       patch :draft, to: "drafts#update"
+
+      resource :contact, only: [ :show ], controller: "contact"
     end
 
     resource :saved_listings, only: [ :create, :destroy ], path: "save"
@@ -24,6 +26,10 @@ Rails.application.routes.draw do
   resource :saved_listings, only: :show
   resource :search, only: :show, controller: "feed/searches" do
     get "tags/:tag", to: "feed/searches/tags#show", as: "tags"
+  end
+
+  resources :conversations, only: [] do
+    resources :messages, only: [:create]
   end
 
   mount Sidekiq::Web => "/sidekiq"
