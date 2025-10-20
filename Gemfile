@@ -80,7 +80,7 @@ gem "premailer-rails", "~> 1.12"
 gem "iso_country_codes"
 
 gem "pagy", "~> 5.10"
-gem "sidekiq", "~> 6.5"
+gem "sidekiq", "~> 8.0"
 gem "sidekiq-cron", "~> 1.7"
 gem "geocoder", "~> 1.8"
 gem "local_time", "~> 2.1"
