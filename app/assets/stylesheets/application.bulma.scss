@@ -41,18 +41,45 @@
 @import "actiontext";
 
 figure.image img {
-    object-fit: cover !important;
+  object-fit: cover !important;
 }
 
 trix-editor {
-    min-height: 90%;
+  min-height: 90%;
 }
 
-messages-container {
-    display: block;
-    overflow-y: scroll;
+.messages-container {
+  display: block;
+  overflow-y: scroll;
 }
 
-.modal messages-container {
-    max-height: 40vh;
+.modal .messages-container {
+  max-height: 40vh;
+}
+
+
+$navbar-height: 3.25rem !default;
+$content-space: calc(100vh - #{$navbar-height});
+
+#conversations {
+  height: $content-space;
+  overflow-y: scroll;
+}
+
+#conversations .is-active {
+  border: 2px solid #DE911D;
+}
+
+turbo-frame#conversation {
+  form {
+    height: 8em;
+
+    textarea {
+      min-height: 4em !important;
+    }
+  }
+
+  .messages-container {
+    height: calc(#{$content-space} - 12em);
+  }
 }

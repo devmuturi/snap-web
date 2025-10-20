@@ -1,0 +1,8 @@
+en:
+  conversations:
+    index:
+      title: Messages
+      no_conversations: You have no conversations yet.
+      no_selected_conversation: Select a conversation to start messaging.
+    show:
+      send: Send
