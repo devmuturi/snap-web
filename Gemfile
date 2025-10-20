@@ -79,7 +79,7 @@ gem "devise", "~> 4.9"
 gem "premailer-rails", "~> 1.12"
 gem "iso_country_codes"
 
-gem "pagy", "~> 5.10"
+gem "pagy", "~> 9.4"
 gem "sidekiq", "~> 6.5"
 gem "sidekiq-cron", "~> 1.7"
 gem "geocoder", "~> 1.8"
