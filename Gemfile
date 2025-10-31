@@ -55,7 +55,7 @@ group :development, :test do
   # faker for generating fake data
   gem "faker", "~> 3.1"
 
-  gem "dotenv-rails", "~> 2.8"
+  gem "dotenv-rails", "~> 3.1"
 end
 
 group :development do
